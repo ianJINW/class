@@ -1,0 +1,18 @@
+<h1>Units</h1>
+<ul>
+  <% units.forEach(unit=> { %>
+    <li>
+      <strong>
+        <%= unit.title %>
+      </strong> - <%= unit.lectures %> lectures
+        <br>Lecturer: <%= unit.lecturer %>
+          <% if (user.role==='admin' ) { %>
+            <a href="/units/<%= unit.id %>/edit">Edit</a>
+            <a href="/units/<%= unit.id %>/delete" onclick="return confirm('Are you sure?')">Delete</a>
+            <% } %>
+    </li>
+    <% }) %>
+</ul>
+<% if (user.role==='admin' ) { %>
+  <a href="/units/new">Add New Unit</a>
+  <% } %>

@@ -1,0 +1,32 @@
+<h1>
+  <%= course.title %>
+</h1>
+<p>
+  <%= course.description %>
+</p>
+
+<h2>Units</h2>
+<ul>
+  <% course.units.forEach(unit=> { %>
+    <li>
+      <strong>
+        <%= unit.title %>
+      </strong> - Lectures: <%= unit.lectures %>
+        <br><strong>Lecturer:</strong>
+        <%= unit.lecturer %>
+          <br><strong>Semester:</strong>
+          <%= unit.semester %>
+    </li>
+    <% }) %>
+</ul>
+
+<% if (!enrolled) { %>
+  <form action="/enroll" method="POST">
+    <input type="hidden" name="courseId" value="<%= course.id %>">
+    <button type="submit">Enroll</button>
+  </form>
+  <% } else { %>
+    <form action="/unenroll/<%= enrolled.id %>" method="POST">
+      <button type="submit">Unenroll</button>
+    </form>
+    <% } %>

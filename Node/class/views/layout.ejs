@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>2019 Class of Physics</title>
+	<link rel="stylesheet" href="/css/style.css" />
+</head>
+
+<body>
+	<header>
+
+		<% if (isLoggedIn ){ %>
+			<figure>
+
+				<img src="<%= user.profileImage %>" alt="<%= user.username %>" />
+				<figcaption>
+					<%= user.username %>
+				</figcaption>
+			</figure>
+			<input type="search" name="search" id="search">
+
+			<% } %>
+
+
+				<nav>
+					<% if (user) { %>
+						<a href="/courses">Courses</a>
+						<a href="/enrollments">Enrollments</a>
+						<a href="/logout">Logout</a>
+						<% } else { %>
+							<a href="/login">Login</a>
+
+							<% } %>
+				</nav>
+
+	</header>
+	<section>
+		<a href="<%= backUrl %>"> &#8592;</a>
+		<div id="messages">
+			<% if (messages) { %>
+				<% if (messages.success) { %>
+					<p>
+						<%- messages %>
+					</p>
+					<% } %>
+						<% if (messages.error) { %>
+							<p>
+								<%- messages %>
+							</p>
+							<% } %>
+								<% } %>
+		</div>
+	</section>
+
+	<main>
+		<%- body %>
+	</main>
+
+	<footer>
+		<p>&copy; 2024 Class Management System</p>
+	</footer>
+	<script src="/js/main.js"></script>
+
+</body>
+
+</html>

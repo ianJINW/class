@@ -1,0 +1,295 @@
+body {
+  text-align: center;
+  background-color: whitesmoke;
+  height: 100dvh;
+  width: 100dvw;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  font-size: small;
+}
+
+a {
+  text-decoration: overline;
+  color: #020955;
+}
+
+header {
+  background-color: beige;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  height: min(10dvh, 400px);
+}
+
+header figure {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+}
+
+header figure img {
+  width: 5dvw;
+  height: 5dvw;
+  object-fit: cover;
+  object-position: center;
+  clip-path: circle();
+}
+
+header figure figcaption {
+  position: absolute;
+  visibility: hidden;
+}
+
+header figure img:hover header figure figcaption {
+  visibility: visible;
+}
+
+header input {
+  border: none;
+  width: 40dvw;
+  outline: none;
+  height: 3dvh;
+  background-color: antiquewhite;
+}
+
+header input:active {
+  outline: none;
+  all: none;
+  background-color: antiquewhite;
+}
+
+header nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 5dvw;
+}
+
+header nav a:hover {
+  color: bisque;
+}
+
+/* Main content and section styling */
+section {
+  display: grid;
+  grid-template-columns: ifr 6fr;
+}
+section div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 5dvw;
+}
+
+footer {
+  bottom: 0;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 50dvh;
+}
+
+/* auth.ejs */
+.close {
+  padding: 0;
+  margin: 0;
+  background: local;
+  color: orangered;
+}
+
+main div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+main div fieldset {
+  border: 1px dashed orangered;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: min(700px, 70dvw);
+  padding-bottom: 20px;
+  margin: 20px 0;
+}
+
+main div fieldset legend {
+  min-width: 100px;
+  border-radius: 20px;
+}
+
+main div fieldset form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  margin: 0 0 10px 0;
+}
+
+main div fieldset form div {
+  display: flex;
+  flex-direction: column !important;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+.password {
+  display: flex;
+  flex-direction: row !important;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+}
+
+input {
+  all: none;
+  padding: 0;
+  height: 15px;
+  text-align: left;
+}
+
+main div fieldset form div input {
+  margin: 25px;
+}
+
+input[type='submit'] {
+  width: 80px;
+  text-align: center;
+}
+
+label {
+  display: none;
+}
+
+main .modalCreate {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.modal {
+  display: none;
+}
+
+.active {
+  display: flex;
+}
+
+input:active {
+  outline: #020955 1px dotted;
+  border: 1px dashed darkblue;
+}
+
+.container form input[type='submit'] {
+  width: max-content;
+  cursor: pointer;
+  border: 1px solid darkblue;
+  background-color: lightslategray;
+  text-align: center;
+}
+
+input[type='button'],
+input[type='submit'] {
+  flex-shrink: 1;
+  .modalCreate {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.animate {
+  -webkit-animation: animatezoom 0.6s;
+  animation: animatezoom 0.6s;
+}
+
+@-webkit-keyframes animatezoom {
+  from {
+    -webkit-transform: scale(0);
+  }
+
+  to {
+    -webkit-transform: scale(1);
+  }
+}
+
+@keyframes animatezoom {
+  from {
+    transform: scaleX(0);
+  }
+
+  to {
+    transform: scaleX(1);
+  }
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+input[type='text'],
+input[type='email'],
+input[type='password'] {
+  margin: 5px 0;
+  padding: 7px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+button {
+  padding: 5px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Links */
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}

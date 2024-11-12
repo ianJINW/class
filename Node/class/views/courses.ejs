@@ -1,0 +1,18 @@
+<h1>Courses</h1>
+<ul>
+  <% courses.forEach(course=> { %>
+    <li>
+      <strong>
+        <%= course.title %>
+      </strong> - <%= course.description %>
+        <a href="/courses/<%= course.id %>">View</a>
+        <% if (user.role==='admin' ) { %>
+          <a href="/courses/<%= course.id %>/edit">Edit</a>
+          <a href="/courses/<%= course.id %>/delete" onclick="return confirm('Are you sure?')">Delete</a>
+          <% } %>
+    </li>
+    <% }) %>
+</ul>
+<% if (user.role==='admin' ) { %>
+  <a href="/courses/new">Add New Course</a>
+  <% } %>

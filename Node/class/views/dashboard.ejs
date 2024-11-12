@@ -1,0 +1,13 @@
+<h1>Welcome, <%= user.username %>
+</h1>
+<h2>Your Enrollments</h2>
+
+<ul>
+  <% enrollments.forEach(enrollment=> { %>
+    <li>
+      <strong>Course:</strong>
+      <%= enrollment.course.title %>
+        <a href="/courses/<%= enrollment.course.id %>">View Details</a>
+    </li>
+    <% }) %>
+</ul>
