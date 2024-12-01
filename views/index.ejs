@@ -1,0 +1,18 @@
+<div class="features">
+	<h3>Welcome to class!!!</h3>
+	<p>
+		Manage multiple university classes.<br />
+		Track attendance and grades <br />
+		Assign and grade assignments <br />
+		Communicate with students
+	</p>
+
+	<h2>Get Started</h2>
+	<% if (isLoggedIn) { %>
+		<a href="/dashboard"><button>Home</button></a>
+		<% } else { %>
+			<p>Sign up now and start organizing your university classes!</p>
+
+			<a href="/auth"><button>Sign Up</button></a>
+			<% } %>
+</div>

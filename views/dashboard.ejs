@@ -1,0 +1,23 @@
+<h2>Welcome, <%= user.username %>!</h2>
+<p>Your email: <%= user.email %>
+</p>
+
+<h3>Your Enrollments:</h3>
+<main>
+  <% if (enrollments.length> 0) { %>
+    <% enrollments.forEach(enrollment=> { %>
+      <div>
+        <a href="enrollments/<%= enrollment.id %>">
+          <h2>
+            <%= enrollment.course.title %>
+          </h2>
+          <p>
+            <%= enrollment.course.description %>
+          </p>
+        </a>
+      </div>
+      <% }) %>
+        <% } else { %>
+          <p>You are not enrolled in any courses. <a href="/courses">Browse Courses</a></p>
+          <% } %>
+</main>

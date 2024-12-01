@@ -1,0 +1,16 @@
+<h1>Your Enrollments</h1>
+<main>
+	<% enrollments.forEach(enrollment=> { %>
+		<div>
+			<strong>Course:</strong>
+			<%= enrollment.course.title %>
+				<a href="/courses/<%= enrollment.course.id %>">View Course</a>
+				<form action="/enrollments/<%= enrollment.id %>?_method=DELETE" method="POST" style="display:inline;">
+					<input type="submit" value="Unenroll">
+				</form>
+		</div>
+		<% }) %>
+			<% if (enrollments.length===0) { %>
+				<a href="/courses">View courses</a>
+				<% } %>
+</main>

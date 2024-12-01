@@ -1,0 +1,31 @@
+<figure>
+  <img src="/<%= user.profileImage %>" alt="<%= user.profileImage %>" />
+  <figcaption>
+    <p>
+      <%= user.username %>
+    </p>
+    <p>
+      <%= user.email %>
+    </p>
+  </figcaption>
+</figure>
+<form class="updater" action="/user/<%= user.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+  <div>
+    <label for="email"></label>
+    <input type="email" name="email" placeholder="Update Email" value="<%= user.email %>" />
+  </div>
+  <div>
+    <label for="username"></label>
+    <input type="text" name="username" placeholder="Update Username:" value="<%= user.username %>" />
+  </div>
+  <div>
+    <label for="password"></label>
+    <input type="password" placeholder="New Password: " name="password" />
+  </div>
+  <input type="file" name="profile" id="dp" accept="image/*">
+  <input type="submit" value="Update">
+</form>
+
+<form action="/user/<%= user.id %>?_method=DELETE" method="POST">
+  <input type="submit" value="Delete">
+</form>

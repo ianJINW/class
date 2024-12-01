@@ -1,0 +1,32 @@
+<form action="/units/<%= unit.id %>" method="POST">
+  <input type="hidden" name="_method" value="PUT">
+
+
+  <label for="title">Unit Title:</label>
+  <input type="text" id="title" name="title" value="<%= unit ? unit.title : '' %>" required>
+
+  <label for="lectures">Number of Lectures:</label>
+  <input type="number" id="lectures" name="lectures" value="<%= unit ? unit.lectures : '' %>" required>
+
+  <label for="lecturer">Lecturer:</label>
+  <input type="text" id="lecturer" name="lecturer" value="<%= unit ? unit.lecturer : '' %>" required>
+
+  <label for="semester">Semester:</label>
+  <input type="text" id="semester" name="semester" value="<%= unit ? unit.semester : '' %>" required>
+
+  <label for="courseId">Course:</label>
+  <% if (unit.courses.length!==0) { %>
+    <select id="courseId" name="courseId" required>
+
+      <% unit.courses.forEach(course=> { %>
+        <option value="<%= course.id %>" <%=unit && unit.courseId===course.id ? 'selected' : '' %>>
+          <%= course.title %>
+        </option>
+        <% }) %>
+    </select>
+    <% } %>
+
+      <button type="submit">
+        <%= unit ? 'Update Unit' : 'Create Unit' %>
+      </button>
+</form>

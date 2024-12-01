@@ -1,0 +1,65 @@
+<div class="login modal animate" role="dialog" aria-labelledby="loginTitle">
+	<fieldset>
+		<legend id="loginTitle">Log in</legend>
+		<form action="/login" method="POST" class="loginForm">
+			<label for="username"></label>
+			<input required type="text" placeholder="Username please" name="username" class="username" aria-required="true" />
+			<label for="password"></label>
+			<div class="pass password">
+				<input required type="password" placeholder="Password please" name="password" class="password"
+					aria-required="true" />
+				<button type="button" class="show">Show</button>
+			</div>
+
+			<input type="submit" value="Log in" />
+		</form>
+		<a href="">Register</a>
+	</fieldset>
+</div>
+
+<div class="signup modal animate" role="dialog" aria-labelledby="signupTitle">
+	<fieldset>
+		<legend id="signupTitle">Sign up</legend>
+		<form action="/register" method="POST" enctype="multipart/form-data" class="signupForm">
+			<div><label for="email"></label>
+				<input required type="email" name="email" placeholder="Email here" id="email" aria-required="true" />
+			</div>
+
+			<div><label for="username"></label>
+				<input required type="text" placeholder="Username please" name="username" id="username" aria-required="true" />
+			</div>
+
+			<div><label for="sPassword"></label>
+				<div class="pass password">
+					<input required type="password" placeholder="Password please" name="password" id="sPassword"
+						aria-required="true" />
+					<button type="button" class="show">Show</button>
+				</div>
+			</div>
+
+			<div><label for="role"></label>
+				<select name="role" id="role" aria-required="true" required>
+					<option value="">Select your role</option>
+					<option value="student">Student</option>
+					<option value="teacher">Teacher</option>
+				</select>
+			</div>
+
+			<div><label for="dp"></label>
+				<input type="file" id="dp" name="profile" accept="image/*" />
+				<img id="dpImg" src="#" alt="Profile Image" style="display:none;">
+				<p id="fileInfo"></p>
+			</div>
+
+			<input type="submit" value="Register">
+		</form>
+		<a href="">Login</a>
+	</fieldset>
+</div>
+
+<div class="modalCreate">
+	<button class="modalC" type="button">
+		Don't have an account? Register.
+	</button>
+	<button class="modalL" type="button">Have an account? Log in.</button>
+</div>

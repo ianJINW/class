@@ -1,0 +1,41 @@
+<h1>Courses</h1>
+<% if (user.role==='admin' ) { %>
+  <button class="creater">Add New Course</button>
+  <% } %>
+    <section class="create">
+      <form action="/courses" method="POST">
+
+
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title" required placeholder="Course Title">
+
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" placeholder="Course description" required>
+      </textarea>
+
+        <button type="submit">
+          Create Course
+        </button>
+      </form>
+    </section>
+    <main>
+      <% courses.forEach(course=> { %>
+        <div>
+          <a href="/courses/<%= course.id %>">
+            <h2>
+              <%= course.title %>
+            </h2>
+            <p>
+              <%= course.description %>
+            </p>
+          </a>
+
+          <% if (user.role==='admin' ) { %>
+            <a href="/courses/<%= course.id %>/edit">Edit</a>
+            <form action="/courses/<%= course.id %>?_method=DELETE" method="POST" style="display:inline;">
+              <button onclick="return confirm('Are you sure?')">Delete</button>
+            </form>
+            <% } %>
+        </div>
+        <% }) %>
+    </main>

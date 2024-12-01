@@ -1,0 +1,16 @@
+<form action="/courseS/<%= course.id %>" method="POST">
+  <input type="hidden" name="_method" value="PUT">
+
+
+  <label for="title">Title:</label>
+  <input type="text" id="title" name="title" value="<%= course ? course.title : '' %>" required>
+
+  <label for="description">Description:</label>
+  <textarea id="description" name="description" rows="20" cols="20" required>
+          <%- course ? course.description : '' %>
+        </textarea>
+
+  <button type="submit">
+    <%= course ? 'Update Course' : 'Create Course' %>
+  </button>
+</form>

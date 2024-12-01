@@ -1,0 +1,26 @@
+<form action="<%= action %>" method="POST">
+  <% if (method) { %>
+    <input type="hidden" name="_method" value="<%= method %>">
+    <% } %>
+
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" value="<%= user ? user.username : '' %>" required>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" value="<%= user ? user.email : '' %>" required>
+
+      <label for="role">Role:</label>
+      <select id="role" name="role" required>
+        <option value="student" <%=user && user.role==='student' ? 'selected' : '' %>>Student</option>
+        <option value="admin" <%=user && user.role==='admin' ? 'selected' : '' %>>Admin</option>
+      </select>
+
+      <% if (!user) { %>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        <% } %>
+
+          <button type="submit">
+            <%= user ? 'Update User' : 'Create User' %>
+          </button>
+</form>

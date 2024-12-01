@@ -1,0 +1,27 @@
+<form action="<%= action %>" method="POST">
+  <% if (method) { %>
+    <input type="hidden" name="_method" value="<%= method %>">
+    <% } %>
+
+      <label for="courseId">Course:</label>
+      <select id="courseId" name="courseId" required>
+        <% courses.forEach(course=> { %>
+          <option value="<%= course.id %>" <%=enrollment && enrollment.courseId===course.id ? 'selected' : '' %>>
+            <%= course.title %>
+          </option>
+          <% }) %>
+      </select>
+
+      <label for="userId">Student:</label>
+      <select id="userId" name="userId" required>
+        <% users.filter(user=> user.role === 'student').forEach(user => { %>
+          <option value="<%= user.id %>" <%=enrollment && enrollment.userId===user.id ? 'selected' : '' %>>
+            <%= user.username %>
+          </option>
+          <% }) %>
+      </select>
+
+      <button type="submit">
+        <%= enrollment ? 'Update Enrollment' : 'Create Enrollment' %>
+      </button>
+</form>

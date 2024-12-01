@@ -1,0 +1,58 @@
+<h1>Units</h1>
+<% if (user.role==='admin' ) { %>
+  <button class="creater">Add New Unit</button>
+  <% } %>
+
+    <section class="create">
+      <form action="/units" method="POST">
+
+        <label for="title">Unit Title:</label>
+        <input type="text" id="title" name="title" required placeholder="Unit title">
+
+        <label for="lectures">Number of Lectures:</label>
+        <input type="number" id="lectures" name="lectures" required placeholder="Unit lectures">
+
+        <label for="lecturer">Lecturer:</label>
+        <input type="text" id="lecturer" name="lecturer" required placeholder="Unit lecturers">
+
+        <label for="semester">Semester:</label>
+        <input type="text" id="semester" name="semester" required placeholder="Unit semester">
+
+        <button type="submit"> Create Unit </button>
+      </form>
+    </section>
+    <main>
+
+      <% if (units.length>=1) { %>
+        <% units.forEach(unit=> { %>
+          <div>
+            <strong>
+              <%= unit.title %>
+            </strong> - <%= unit.lectures %> lectures
+              <br>Lecturer: <%= unit.lecturer %>
+                <% if (user.role==='admin' ) { %>
+                  <a href="/units/<%= unit.id %>/edit">Edit</a>
+                  <form action="/units/<%= unit.id %>?_method=DELETE" method="POST" style="display:inline;">
+                    <button onclick="return confirm('Are you sure?')">Delete</button>
+                  </form>
+                  <% } %>
+          </div>
+          <% }) %>
+
+            <% } else { %>
+
+              <div>
+                <strong>
+                  <%= units.title %>
+                </strong> - <%= units.lectures %> lectures
+                  <br>Lecturer: <%= units.lecturer %>
+                    <% if (user.role==='admin' ) { %>
+                      <a href="/units/<%= units.id %>/edit">Edit</a>
+                      <form action="/units/<%= units.id %>?_method=DELETE" method="POST" style="display:inline;">
+                        <button onclick="return confirm('Are you sure?')">Delete</button>
+                      </form>
+                      <% } %>
+              </div>
+              <% } %>
+
+                < </main>
